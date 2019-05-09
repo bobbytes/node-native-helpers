@@ -5,4 +5,3 @@ export * from './get-from-object-path';
 export * from './is-object';
 export * from './merge-deep';
 export * from './publish-subscribe';
-export * from './sort-array-of-numbers';
