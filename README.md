@@ -1,3 +1,6 @@
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/DaNautilus/node-helpers.svg)](https://greenkeeper.io/)
+
 <h1 align="center">Node Helpers</h1>
 
 <p align="center">
