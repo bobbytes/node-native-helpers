@@ -1,6 +1,3 @@
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/DaNautilus/node-helpers.svg)](https://greenkeeper.io/)
-
 <h1 align="center">Node Helpers</h1>
 
 <p align="center">
@@ -18,6 +15,9 @@
   </a>
   <a href="https://sonarcloud.io/dashboard/index/DaNautilus_node-helpers">
     <img src="https://sonarcloud.io/api/project_badges/measure?project=DaNautilus_node-helpers&metric=alert_status" alt="quality gate" />
+  </a>
+  <a href="https://greenkeeper.io/">
+    <img src="https://badges.greenkeeper.io/DaNautilus/node-helpers.svg" alt="greenkeeper" />
   </a>
 </p>
 
