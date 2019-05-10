@@ -1,5 +1,5 @@
 {
-  "name": "node-helpers",
+  "name": "node-native-helpers",
   "version": "0.0.1",
   "description": "Useful Node.js helpers",
   "main": "dist/index.js",
@@ -44,7 +44,7 @@
     ]
   },
   "sonar": {
-    "projectKey": "DaNautilus_node-helpers",
+    "projectKey": "DaNautilus_node-native-helpers",
     "sources": "src",
     "reportPaths": "test/coverage/lcov.info"
   },
