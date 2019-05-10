@@ -137,4 +137,11 @@ describe('PublishSubscribe', () => {
 
     expect(messageReceived).toEqual('');
   });
+
+  test('must not throw an error if no subscription is available', () => {
+    expect(pubSubTest).toBeInstanceOf(PubSubTest);
+    expect(pubSubTest).toBeInstanceOf(PublishSubscribe);
+
+    expect(async () => pubSubTest.sendMessage(undefined, testMessage)).not.toThrow();
+  });
 });
