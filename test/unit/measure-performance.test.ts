@@ -12,7 +12,7 @@ describe('MeasurePerformance', () => {
   });
 
   test('must return execution time with an event', () => {
-    expect(measurePerformance).toBeDefined();
+    expect(measurePerformance).toBeInstanceOf(MeasurePerformance);
 
     let executionTime: PerformanceEntry;
     measurePerformance.start();
