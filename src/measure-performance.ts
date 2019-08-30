@@ -11,6 +11,9 @@ export interface IMeasurePerformanceData {
   stop: {};
 }
 
+/**
+ * Measures application performance based on Node.js perf_hooks
+ */
 export class MeasurePerformance extends EventEmitter {
   private performanceObserver;
   private startMarker: string;
