@@ -1,20 +1,37 @@
 # Changelog
 
+## [1.1.1] - 2019-30-08
+
+### FIxed
+
+- Export `MeasureTimestamp`.
+
 ## [1.1.0] - 2019-30-08
+
+### Added
 
 - Added `MeasureTimestamp` feature.
 
 ## [1.0.1] - 2019-30-08
 
+### Fixed
+
 - Don't concatenate additional start and stop data from `MeasurePerformance`.
 
 ## [1.0.0] - 2019-30-08
 
+### General
+
 - Upgrade dependencies.
+
+### Added
+
 - Make `MeasurePerformance` `id` optional.
 - Allow to add additional data to `MeasurePerformance`.
 
 ## [0.0.2] - 2019-06-06
+
+### General
 
 - Upgrade jest dependencies.
 - Upgrade rollup dependencies.
