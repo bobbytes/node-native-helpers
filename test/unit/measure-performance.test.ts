@@ -1,14 +1,14 @@
 import { PerformanceEntry } from 'perf_hooks';
 
-import { MeasurePerformance, MeasurePerformanceEvent, IMeasurementData } from '../../src/measure-performance';
+import { MeasurePerformance, MeasurePerformanceEvent, IMeasurePerformanceData } from '../../src/measure-performance';
 
 describe('MeasurePerformance', () => {
   let measurePerformance: MeasurePerformance;
-  let executionTime: PerformanceEntry;
-  let receivedData: IMeasurementData;
+  let receivedMeasure: PerformanceEntry;
+  let receivedData: IMeasurePerformanceData;
 
   const onMeasurement = ({ measure, data }) => {
-    executionTime = measure;
+    receivedMeasure = measure;
     receivedData = data;
   };
 
@@ -16,16 +16,15 @@ describe('MeasurePerformance', () => {
 
   beforeEach(() => {
     measurePerformance = new MeasurePerformance('unit-test');
-    executionTime = undefined;
+    measurePerformance.on(MeasurePerformanceEvent.Measure, onMeasurement);
+    receivedMeasure = undefined;
     receivedData = undefined;
   });
 
-  test('must return execution time with an event', () => {
+  test('must return duration with an event', () => {
     expect(measurePerformance).toBeInstanceOf(MeasurePerformance);
 
     measurePerformance.start();
-
-    measurePerformance.on(MeasurePerformanceEvent.Measure, onMeasurement);
 
     setTimeout(() => {
       measurePerformance.stop();
@@ -33,9 +32,9 @@ describe('MeasurePerformance', () => {
 
     jest.runAllTimers();
 
-    expect(executionTime).toBeDefined();
-    expect(executionTime.duration).toBeDefined();
-    expect(typeof executionTime.duration).toEqual('number');
+    expect(receivedMeasure).toBeDefined();
+    expect(receivedMeasure.duration).toBeDefined();
+    expect(typeof receivedMeasure.duration).toEqual('number');
     expect(receivedData).toBeInstanceOf(Object);
     expect(receivedData.start).toBeInstanceOf(Object);
     expect(receivedData.stop).toBeInstanceOf(Object);
@@ -45,10 +44,9 @@ describe('MeasurePerformance', () => {
     expect(measurePerformance).toBeInstanceOf(MeasurePerformance);
 
     measurePerformance = new MeasurePerformance();
+    measurePerformance.on(MeasurePerformanceEvent.Measure, onMeasurement);
 
     measurePerformance.start();
-
-    measurePerformance.on(MeasurePerformanceEvent.Measure, onMeasurement);
 
     setTimeout(() => {
       measurePerformance.stop();
@@ -56,9 +54,9 @@ describe('MeasurePerformance', () => {
 
     jest.runAllTimers();
 
-    expect(executionTime).toBeDefined();
-    expect(executionTime.duration).toBeDefined();
-    expect(typeof executionTime.duration).toEqual('number');
+    expect(receivedMeasure).toBeDefined();
+    expect(receivedMeasure.duration).toBeDefined();
+    expect(typeof receivedMeasure.duration).toEqual('number');
     expect(receivedData).toBeInstanceOf(Object);
     expect(receivedData.start).toBeInstanceOf(Object);
     expect(receivedData.stop).toBeInstanceOf(Object);
@@ -72,17 +70,15 @@ describe('MeasurePerformance', () => {
 
     measurePerformance.start(startData);
 
-    measurePerformance.on(MeasurePerformanceEvent.Measure, onMeasurement);
-
     setTimeout(() => {
       measurePerformance.stop(stopData);
     }, 500);
 
     jest.runAllTimers();
 
-    expect(executionTime).toBeDefined();
-    expect(executionTime.duration).toBeDefined();
-    expect(typeof executionTime.duration).toEqual('number');
+    expect(receivedMeasure).toBeDefined();
+    expect(receivedMeasure.duration).toBeDefined();
+    expect(typeof receivedMeasure.duration).toEqual('number');
     expect(receivedData).toBeInstanceOf(Object);
     expect(receivedData.start).toEqual(startData);
     expect(receivedData.stop).toEqual(stopData);
