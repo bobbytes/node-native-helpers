@@ -4,5 +4,6 @@ export * from './convert-string-to-number';
 export * from './get-from-object-path';
 export * from './is-object';
 export * from './measure-performance';
+export  * from './measure-timestamp';
 export * from './merge-deep';
 export * from './publish-subscribe';
