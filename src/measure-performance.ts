@@ -6,6 +6,11 @@ export enum MeasurePerformanceEvent {
   Measure = 'measure',
 }
 
+export interface IMeasurementData {
+  start: {};
+  stop: {};
+}
+
 export class MeasurePerformance extends EventEmitter {
   private performanceObserver;
   private startMarker: string;
@@ -37,7 +42,9 @@ export class MeasurePerformance extends EventEmitter {
     this.clearMarks();
 
     const measure = list.getEntries()[0];
-    this.emit(MeasurePerformanceEvent.Measure, { measure, data: { ...this.startData, ...this.stopData } });
+    const data: IMeasurementData = { start: this.startData, stop: this.stopData };
+
+    this.emit(MeasurePerformanceEvent.Measure, { measure, data });
   }
 
   private clearMarks(): void {
