@@ -1,5 +1,6 @@
 import { EventEmitter } from 'events';
 import { performance, PerformanceObserver, PerformanceObserverEntryList } from 'perf_hooks';
+import uuid from 'uuid/v4';
 
 export enum MeasurePerformanceEvent {
   Measure = 'measure',
@@ -10,7 +11,7 @@ export class MeasurePerformance extends EventEmitter {
   private startMarker: string;
   private stopMarker: string;
 
-  constructor(id: string) {
+  constructor(id: string = uuid()) {
     super();
     this.performanceObserver = new PerformanceObserver(this.onMeasure.bind(this));
     this.startMarker = `${id}-start`;
