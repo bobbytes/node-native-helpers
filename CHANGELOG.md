@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.1] - 2019-30-08
+
+- Don't concatenate additional start and stop data from `MeasurePerformance`.
+
 ## [1.0.0] - 2019-30-08
 
 - Upgrade dependencies.
