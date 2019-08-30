@@ -10,6 +10,8 @@ export class MeasurePerformance extends EventEmitter {
   private performanceObserver;
   private startMarker: string;
   private stopMarker: string;
+  private startData: {};
+  private stopData: {};
 
   constructor(id: string = uuid()) {
     super();
@@ -18,13 +20,15 @@ export class MeasurePerformance extends EventEmitter {
     this.stopMarker = `${id}-end`;
   }
 
-  public start(): void {
+  public start(data: {} = {}): void {
     performance.mark(this.startMarker);
+    this.startData = data;
   }
 
-  public stop(): void {
+  public stop(data: {} = {}): void {
     performance.mark(this.stopMarker);
     this.performanceObserver.observe({ entryTypes: ['measure'] });
+    this.stopData = data;
     performance.measure('execution time', this.startMarker, this.stopMarker);
   }
 
@@ -33,7 +37,7 @@ export class MeasurePerformance extends EventEmitter {
     this.clearMarks();
 
     const measure = list.getEntries()[0];
-    this.emit(MeasurePerformanceEvent.Measure, measure);
+    this.emit(MeasurePerformanceEvent.Measure, { measure, data: { ...this.startData, ...this.stopData } });
   }
 
   private clearMarks(): void {
