@@ -1,8 +1,18 @@
 # Changelog
 
+## [1.2.0] - 2019-30-08
+
+### Added
+
+- TypeDoc added.
+
+### Fixed
+
+- Dependency related security issues fixed.
+
 ## [1.1.1] - 2019-30-08
 
-### FIxed
+### Fixed
 
 - Export `MeasureTimestamp`.
 
