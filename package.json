@@ -1,6 +1,6 @@
 {
   "name": "node-native-helpers",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Useful Node.js helpers",
   "main": "dist/index.js",
   "module": "dist/index.es.js",

@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.0] - 2019-30-08
+
+- Upgrade dependencies.
+- Make `MeasurePerformance` `id` optional.
+- Allow to add additional data to `MeasurePerformance`.
+
 ## [0.0.2] - 2019-06-06
 
 - Upgrade jest dependencies.
