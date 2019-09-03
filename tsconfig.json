@@ -5,7 +5,7 @@
     "module": "es6",
     "noImplicitAny": false,
     "outDir": ".tmp",
-    "target": "es5",
+    "target": "es6",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "esModuleInterop": true,
