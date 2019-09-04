@@ -45,7 +45,7 @@ export class MeasureTimestamp extends EventEmitter {
   }
 
   private getMeasureResponse(stopMilliseconds: number, stopData: {} = {}): IMeasureTimestampResponse {
-    const measure = { duration: this.startMilliseconds - stopMilliseconds };
+    const measure = { duration: stopMilliseconds - this.startMilliseconds };
     const data: IMeasureTimestampData = { start: this.startData, stop: stopData };
 
     return { measure, data };
