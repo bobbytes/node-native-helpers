@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.1] - 2019-04-09
+
+### Fixed
+
+- Wrong calculation of timestamp difference in `MeasureTimestamp`.
+
 ## [1.2.0] - 2019-30-08
 
 ### Added
